@@ -23,7 +23,16 @@ class AutoLogin():
     def content(self, subject):
         if subject.startswith("ma"):
             self.click_subject('//*[@id="_3_1termCourses_noterm"]/ul/li[13]/a')
-            self.click_subject('//*[@id="paletteItem:_20514_1"]/a/span')
+            while True:
+                try:
+                    self.click_subject('//*[@id="paletteItem:_20514_1"]/a/span')
+                    break
+                except:
+                    try:
+                        self.click_subject('//*[@id="menuPuller"]')
+                    except:
+                        pass
+            
         elif subject.startswith("ph"):
             self.click_subject('//*[@id="_3_1termCourses_noterm"]/ul/li[12]/a')
 
@@ -32,7 +41,15 @@ class AutoLogin():
 
         elif subject.startswith("bi"):
             self.click_subject('//*[@id="_3_1termCourses_noterm"]/ul/li[17]/a')
-            self.click_subject('//*[@id="paletteItem:_20412_1"]/a/span')
+            while True:
+                try:
+                    self.click_subject('//*[@id="paletteItem:_20412_1"]/a/span')
+                    break
+                except:
+                    try:
+                        self.click_subject('//*[@id="menuPuller"]')
+                    except:
+                        pass
 
         else:
             raise Exception('Bruh no such subject like \"{}\"!'.format(subject))
