@@ -43,7 +43,7 @@ class AutoLogin():
             self.click_subject('//*[@id="_3_1termCourses_noterm"]/ul/li[17]/a')
             while True:
                 try:
-                    self.click_subject('//*[@id="paletteItem:_20412_1"]/a/span')
+                    self.click_subject('//*[@id="paletteItem:_20410_1"]/a/span')
                     break
                 except:
                     try:
