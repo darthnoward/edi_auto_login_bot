@@ -34,7 +34,7 @@ class AutoLogin():
                         pass
             
         elif subject.startswith("ph"):
-            self.click_subject('//*[@id="_3_1termCourses_noterm"]/ul/li[12]/a')
+            self.click_subject('//*[@id="_3_1termCourses_noterm"]/ul/li[14]/a')
 
         elif subject.startswith("d"):
             self.click_subject('//*[@id="_3_1termCourses_noterm"]/ul/li[15]/a')
