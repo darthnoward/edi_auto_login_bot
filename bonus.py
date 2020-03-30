@@ -1,5 +1,5 @@
 #! /Users/darthnoward/anaconda3/bin/python3
-#! this is a bonus script for a specific usage during covid-19 pandemic
+# this is a bonus script for a specific usage during covid-19 pandemic
 
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
