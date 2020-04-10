@@ -1,7 +1,7 @@
 # Edimension auto login bot
 A script that can save a lot of time by automatically logging users into the school resource page https://Edimension.sutd.edu.sg
 
-##Installation
+## Installation
 Two options:
 - ### Auto installation script
 #### Mac OS and GNU\Linux supported
