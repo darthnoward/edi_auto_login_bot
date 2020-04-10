@@ -61,4 +61,5 @@ edi                             if you are using auto installation script
 
 *Sweet*
 
-
+### Licence
+Licensed under the [MIT license](./LICENSE)

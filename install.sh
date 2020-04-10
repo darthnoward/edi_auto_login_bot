@@ -65,7 +65,7 @@ printf "\nTo complete the installation process, root privilege is required.\n"
 printf "Enter your password:\n"
 sudo mv chromedriver /usr/local/bin 
 
-printf "\nInstalling selenium library for Python...\n"
+printf "\nInstalling Selenium library for Python...\n"
 pip install selenium > /dev/null || sudo pip install selenium > /dev/null
 pip3 install selenium > /dev/null || sudo pip3 install selenium > /dev/null
 
@@ -85,9 +85,9 @@ esac
     
 cd ~/.edi_tmp/edi_auto_login_bot
 printf "Finalizing...\n\nPlease input your student id, e.g. 1004321\nYour information will be stored only locally and is accessible by no one.\nStudent ID: "
-read  name
+read name
 printf "\nPlease input your password for Edimension.\nYour information will be stored only locally and is accessible by no one.\nPassword: "
-read  pass 
+read -s pass 
 echo "username = 'SUTDSTU\\\\$name'" > ./myinfo.py
 echo "password = '$pass'" >> ./myinfo.py
 
