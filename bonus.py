@@ -1,4 +1,4 @@
-#! /Users/darthnoward/anaconda3/bin/python3
+#! /usr/bin/python3
 # this is a bonus script for a specific usage during covid-19 pandemic
 
 from selenium import webdriver
@@ -20,7 +20,7 @@ class AutoLogin():
         self.driver.find_element_by_xpath('//*[@id="pgContent1_uiLoginid"]').send_keys(username)
         self.driver.find_element_by_xpath('//*[@id="pgContent1_uiPassword"]').send_keys(password)
         self.driver.find_element_by_xpath('//*[@id="pgContent1_btnLogin"]').click()
-        self.driver.find_element_by_xpath('//*[@id="list"]/ul/li[1]/a').click()
+        self.driver.find_element_by_xpath('//*[@id="list"]/ul/li[2]/a').click()
         self.driver.switch_to.window(self.driver.window_handles[-1])
         select = Select(self.driver.find_element_by_id("pgContent1_uiTemperature"))
         select.select_by_index(1)

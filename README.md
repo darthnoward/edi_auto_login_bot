@@ -7,7 +7,7 @@ Two options:
 #### Mac OS and GNU\Linux supported
 
 ```
-bash -c "$(curl -s https://darthnoward.com/edi_install.sh)"
+bash -c "$(curl -s https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master/install.sh)"
 ```
 curl, pip and git required, follow the instruction to key in information.
 
@@ -15,7 +15,7 @@ curl, pip and git required, follow the instruction to key in information.
 Satisfy the Prerequisites below.
 
 ## Prerequisite
-- Chrome or Chromium with version 79, 80 or 81
+- Chrome or Chromium with a minimal version of 79
 - chromedriver installed in /usr/local/bin (Download from https://chromedriver.chromium.org)
 - Python and Selenium library installed 
 - create a file named myinfo.py in the same directory as main.py and put in your username and password, like
