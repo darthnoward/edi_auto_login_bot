@@ -81,9 +81,17 @@ sh=$(echo $SHELL | rev | cut -c -3 | rev)
 
 printf "Creating alias for the shell...\n"
 case $sh in
-    "ash") echo "alias edi='$py ~/.edi_tmp/edi_auto_login_bot/main.py'" >> ~/.bashrc && echo "alias edi='$py ~/.edi_tmp/edi_auto_login_bot/main.py'" >> ~/.bash_profile ;;
-    "zsh") echo "alias edi='$py ~/.edi_tmp/edi_auto_login_bot/main.py'" >> ~/.zshrc ;;
-    "ish") echo "alias edi='$py ~/.edi_tmp/edi_auto_login_bot/main.py'" >> ~/.config/fish/config.fish ;;
+    "ash") 
+      sed -i -e 's/^alias edi=.*//g' ~/.bashrc
+      sed -i -e 's/^alias edi=.*//g' ~/.bash_profile
+      echo "alias edi='$py ~/.edi_tmp/edi_auto_login_bot/main.py'" >> ~/.bashrc
+      echo "alias edi='$py ~/.edi_tmp/edi_auto_login_bot/main.py'" >> ~/.bash_profile ;;
+    "zsh") 
+      sed -i -e 's/^alias edi=.*//g' ~/.zshrc
+      echo "alias edi='$py ~/.edi_tmp/edi_auto_login_bot/main.py'" >> ~/.zshrc ;;
+    "ish") 
+      sed -i -e 's/^alias edi=.*//g' ~/.config/fish/config.fish
+      echo "alias edi='$py ~/.edi_tmp/edi_auto_login_bot/main.py'" >> ~/.config/fish/config.fish ;;
     *) printf "\nNo support for your shell, no alias was created.\n" ;;
 esac
     
