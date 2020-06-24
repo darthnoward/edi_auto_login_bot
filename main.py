@@ -1,4 +1,4 @@
-#! /Users/darthnoward/anaconda3/bin/python 
+#! /usr/bin/python3
 
 from selenium import webdriver
 from myinfo import username, password 

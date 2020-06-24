@@ -63,7 +63,7 @@ else
         exit 
     fi 
 fi
-unzip -q ./chromedriver_*64.zip
+unzip -q ./chromedriver_*64.zip && rm -rf ./chromedriver_*64.zip
 
 printf "\nTo complete the installation process, root privilege is required.\n"
 printf "Enter your password:\n"
