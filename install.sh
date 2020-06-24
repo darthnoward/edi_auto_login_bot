@@ -3,7 +3,7 @@
 printf "\nAuto installation script for https://github.com/darthnoward/edi_auto_login_bot\nSupported operating system: Mac OS X, GNU/Linux\nSupported browser: Google Chrome, Chromium. (79, 80, 81, 83)\n"
 
 if [ -d ~/.edi_tmp ]; then
-    printf "Directory '~/.edi_tmp' already exists.\nCleaning up the directory...\n"
+    printf "\nDirectory '~/.edi_tmp' already exists.\nCleaning up the directory...\n"
     rm -rf ~/.edi_tmp
 fi
 mkdir ~/.edi_tmp 
@@ -66,7 +66,7 @@ fi
 unzip -q ./chromedriver_*64.zip && rm -rf ./chromedriver_*64.zip
 
 printf "\nTo complete the installation process, root privilege is required.\n"
-printf "Enter your password:\n"
+printf "Enter your password:\n\n"
 sudo mv chromedriver /usr/local/bin 
 
 py=$(which python3)
@@ -112,4 +112,4 @@ read -s pass
 echo "username = 'SUTDSTU\\\\$name'" > ./myinfo.py
 echo "password = '$pass'" >> ./myinfo.py
 
-printf "\nInstallation process is complete!\nTry opening a new terminal and run 'edi'!\n"
+printf "\n\nInstallation process is complete!\nTry opening a new terminal and run 'edi'!\n"
