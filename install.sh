@@ -69,9 +69,16 @@ printf "\nTo complete the installation process, root privilege is required.\n"
 printf "Enter your password:\n"
 sudo mv chromedriver /usr/local/bin 
 
-printf "\nInstalling Selenium library for Python...\n"
-pip install selenium > /dev/null || sudo pip install selenium > /dev/null
-pip3 install selenium > /dev/null || sudo pip3 install selenium > /dev/null
+py=$(which python3)
+if echo $($py -m pip list) | grep -q selenium; then
+  echo "Selenium Library detected, skipping."
+  echo
+else
+  printf "\nInstalling Selenium library for Python...\n"
+  $py -m pip install selenium
+  echo "Selenium Library installed."
+  echo
+fi
 
 printf "Installing scripts...\n"
 curl -Os https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master/main.py
@@ -79,7 +86,6 @@ curl -Os https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master
 curl -Os https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master/bonus2.py
 chmod +x *.py
 
-py=$(which python3)
 sh=$(echo $SHELL | rev | cut -c -3 | rev) 
 
 printf "Creating alias for the shell...\n"
