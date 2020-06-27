@@ -75,7 +75,7 @@ if echo $($py -m pip list) | grep -q selenium; then
   echo
 else
   printf "\nInstalling Selenium library for Python...\n"
-  $py -m pip install selenium
+  $py -m pip install selenium > /dev/null
   echo "Selenium Library installed."
   echo
 fi
