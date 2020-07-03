@@ -63,7 +63,14 @@ else
         exit 
     fi 
 fi
-unzip -q ./chromedriver_*64.zip && rm -rf ./chromedriver_*64.zip
+
+if unzip -q ./chromedriver_*64.zip; then
+  rm -rf ./chromedriver_*64.zip
+  echo "Chrome driver installed."
+else
+  printf "No Internet Connection.\nAbort.\n"
+  exit 1
+fi
 
 printf "\nTo complete the installation process, root privilege is required.\n"
 printf "Enter your password:\n\n"
@@ -75,8 +82,13 @@ if echo $($py -m pip list) | grep -q selenium; then
   echo
 else
   printf "\nInstalling Selenium library for Python...\n"
-  $py -m pip install selenium > /dev/null
-  echo "Selenium Library installed."
+  if $py -m pip install selenium > /dev/null; then
+    echo "Selenium Library installed."
+  else
+    echo "Selenium Library NOT installed."
+    echo Abort.
+    exit 1
+  fi
   echo
 fi
 
@@ -84,7 +96,15 @@ printf "Installing scripts...\n"
 curl -Os https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master/main.py
 curl -Os https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master/bonus.py
 curl -Os https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master/bonus2.py
-chmod +x *.py
+
+if [ $(ls | wc -w) -eq 3 ]; then
+  chmod +x *.py
+  echo "Scripts installed."
+else
+  echo "No Internet Connection."
+  echo Abort.
+  exit 1
+fi
 
 sh=$(echo $SHELL | rev | cut -c -3 | rev) 
 
