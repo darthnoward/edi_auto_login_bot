@@ -1,6 +1,6 @@
 #! /bin/bash 
 
-printf "\nAuto installation script for https://github.com/darthnoward/edi_auto_login_bot\nSupported operating system: Mac OS X, GNU/Linux\nSupported browser: Google Chrome, Chromium. (79, 80, 81, 83)\n"
+printf "\nAuto installation script for https://github.com/darthnoward/edi_auto_login_bot\nSupported operating system: Mac OS X, GNU/Linux\nSupported browser: Google Chrome, Chromium. (79, 80, 81, 83, 84)\n"
 
 if [ -d ~/.edi_tmp ]; then
     printf "\nDirectory '~/.edi_tmp' already exists.\nCleaning up the directory...\n"
@@ -17,6 +17,7 @@ if [[ $(uname) == "Darwin" ]]; then
             "80") curl -Os https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_mac64.zip ;;
             "81") curl -Os https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_mac64.zip ;;
             "83") curl -Os https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_mac64.zip ;;
+            "84") curl -Os https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_mac64.zip ;;
             *) printf "\nNo current support for your version of browser.\nPlease update your Chrome.\nOperation terminated.\n" && exit ;;
         esac
     else
@@ -26,6 +27,7 @@ if [[ $(uname) == "Darwin" ]]; then
                 "80") curl -Os https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_mac64.zip ;;
                 "81") curl -Os https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_mac64.zip ;;
                 "83") curl -Os https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_mac64.zip ;;
+                "84") curl -Os https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_mac64.zip ;;
                 *) printf "\nNo current support for your version of browser.\nPlease update your Chromium.\nOperation terminated.\n" && exit ;;
             esac
         else
@@ -42,6 +44,7 @@ else
                 "80") curl -Os https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip ;;
                 "81") curl -Os https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip ;;
                 "83") curl -Os https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip ;;
+                "84") curl -Os https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip ;;
                 *) printf "\nNo current support for your version of browser.\nPlease update your Chromium.\nOperation terminated.\n" && exit ;;
             esac
         else
@@ -51,6 +54,7 @@ else
                     "80") curl -Os https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip ;;
                     "81") curl -Os https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip ;;
                     "83") curl -Os https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip ;;
+                    "84") curl -Os https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip ;;
                     *) printf "\nNo current support for your version of browser.\nPlease update your Chrome.\nOperation terminated.\n" && exit ;;
                 esac
             else
