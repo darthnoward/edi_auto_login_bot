@@ -1,6 +1,6 @@
 #! /bin/bash 
 
-printf "\nAuto installation script for https://github.com/darthnoward/edi_auto_login_bot\nSupported operating system: Mac OS X, GNU/Linux\nSupported browser: Google Chrome, Chromium. (79, 80, 81, 83, 84)\n"
+printf "\nAuto installation script for https://github.com/darthnoward/edi_auto_login_bot\nSupported operating system: Mac OS X, GNU/Linux\nSupported browser: Google Chrome, Chromium. (Version 79, 80, 81, 83, 84, 85)\n"
 
 if [ -d ~/.edi_tmp ]; then
     printf "\nDirectory '~/.edi_tmp' already exists.\nCleaning up the directory...\n"
@@ -85,7 +85,7 @@ printf "Enter your password:\n\n"
 sudo mv chromedriver /usr/local/bin 
 
 py=$(which python3)
-if $py -m pip list | grep -q selenium; then
+if echo $($py -m pip list) | grep -q selenium; then
   echo "Selenium Library detected, skipping."
   echo
 else
