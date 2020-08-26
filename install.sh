@@ -18,6 +18,7 @@ if [[ $(uname) == "Darwin" ]]; then
             "81") curl -Os https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_mac64.zip ;;
             "83") curl -Os https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_mac64.zip ;;
             "84") curl -Os https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_mac64.zip ;;
+            "85") curl -Os https://chromedriver.storage.googleapis.com/85.0.4183.83/chromedriver_mac64.zip ;;
             *) printf "\nNo current support for your version of browser.\nPlease update your Chrome.\nOperation terminated.\n" && exit ;;
         esac
     else
@@ -28,6 +29,7 @@ if [[ $(uname) == "Darwin" ]]; then
                 "81") curl -Os https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_mac64.zip ;;
                 "83") curl -Os https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_mac64.zip ;;
                 "84") curl -Os https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_mac64.zip ;;
+                "85") curl -Os https://chromedriver.storage.googleapis.com/85.0.4183.83/chromedriver_mac64.zip ;;
                 *) printf "\nNo current support for your version of browser.\nPlease update your Chromium.\nOperation terminated.\n" && exit ;;
             esac
         else
@@ -45,6 +47,7 @@ else
                 "81") curl -Os https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip ;;
                 "83") curl -Os https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip ;;
                 "84") curl -Os https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip ;;
+                "85") curl -Os https://chromedriver.storage.googleapis.com/85.0.4183.83/chromedriver_linux64.zip ;;
                 *) printf "\nNo current support for your version of browser.\nPlease update your Chromium.\nOperation terminated.\n" && exit ;;
             esac
         else
@@ -55,6 +58,7 @@ else
                     "81") curl -Os https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip ;;
                     "83") curl -Os https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip ;;
                     "84") curl -Os https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip ;;
+                    "85") curl -Os https://chromedriver.storage.googleapis.com/85.0.4183.83/chromedriver_linux64.zip ;;
                     *) printf "\nNo current support for your version of browser.\nPlease update your Chrome.\nOperation terminated.\n" && exit ;;
                 esac
             else
@@ -81,7 +85,7 @@ printf "Enter your password:\n\n"
 sudo mv chromedriver /usr/local/bin 
 
 py=$(which python3)
-if echo $($py -m pip list) | grep -q selenium; then
+if $py -m pip list | grep -q selenium; then
   echo "Selenium Library detected, skipping."
   echo
 else
@@ -115,15 +119,15 @@ sh=$(echo $SHELL | rev | cut -c -3 | rev)
 printf "Creating alias for the shell...\n"
 case $sh in
     "ash") 
-      sed -i -e 's/^alias edi=.*//g' ~/.bashrc
-      sed -i -e 's/^alias edi=.*//g' ~/.bash_profile
+      sed -i -e '\:^alias edi=.*:d' ~/.bashrc
+      sed -i -e '\:^alias edi=.*:d' ~/.bash_profile
       echo "alias edi='$py ~/.edi_tmp/main.py'" >> ~/.bashrc
       echo "alias edi='$py ~/.edi_tmp/main.py'" >> ~/.bash_profile ;;
     "zsh") 
-      sed -i -e 's/^alias edi=.*//g' ~/.zshrc
+      sed -i -e '\:^alias edi=.*:d' ~/.zshrc
       echo "alias edi='$py ~/.edi_tmp/main.py'" >> ~/.zshrc ;;
     "ish") 
-      sed -i -e 's/^alias edi=.*//g' ~/.config/fish/config.fish
+      sed -i -e '\:^alias edi=.*:d' ~/.config/fish/config.fish
       echo "alias edi='$py ~/.edi_tmp/main.py'" >> ~/.config/fish/config.fish ;;
     *) printf "\nNo support for your shell, no alias was created.\n" ;;
 esac
