@@ -110,6 +110,11 @@ curl -Os https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master
 curl -Os https://raw.githubusercontent.com/darthnoward/edi_auto_login_bot/master/bonus2.py
 
 if [ $(ls | wc -w) -eq 3 ]; then
+  sed "s~/usr/bin/python3~$py~g" main.py > tmp.py
+  mv tmp.py main.py
+  sed "s~/usr/bin/python3~$py~g" bonus.py > bonus1.py
+  sed "s~/usr/bin/python3~$py~g" bonus2.py > bonus.py
+  mv bonus.py bonus2.py  # trash fix due to different usage of sed between GNU and BSD.
   chmod +x *.py
   echo "Scripts installed."
 else
@@ -144,4 +149,5 @@ read -s pass
 echo "username = 'SUTDSTU\\\\$name'" > ./myinfo.py
 echo "password = '$pass'" >> ./myinfo.py
 
+cd
 printf "\n\nInstallation process is complete!\nTry opening a new terminal and run 'edi'!\n"
